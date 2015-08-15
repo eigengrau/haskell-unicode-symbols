@@ -12,10 +12,12 @@ module Prelude.Unicode.SR (
     (↑≪), (≫↑), (⫵),
     (↑+), (↑×),
     (∥), (‖),
-    (&), (<&>)
+    (&), (<&>),
+    (∨∨), (∧∧)
   ) where
 
 
+import           Prelude.Unicode
 import           Control.Applicative
 import           Control.Applicative.Unicode
 import           Control.Arrow
@@ -129,3 +131,13 @@ infixl 0 &
 (<&>) ∷ Functor f ⇒ f α → (α → β) → f β
 (<&>) = flip (<$>)
 infixl 4 <&>
+
+
+-- Pointless predicate composition.
+(∨∨) ∷ (α → Bool) → (α → Bool) → (α → Bool)
+(∨∨) = liftA2 (∨)
+infixr 2 ∨∨
+
+(∧∧) ∷ (α → Bool) → (α → Bool) → (α → Bool)
+(∧∧) = liftA2 (∧)
+infixr 3 ∧∧
