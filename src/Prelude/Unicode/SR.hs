@@ -12,17 +12,16 @@ module Prelude.Unicode.SR (
     (↑≪), (≫↑), (⥈), (↭),
     (↑+), (↑×),
     (∥), (‖),
-    (&), (<&>),
     (∨∨), (∧∧)
   ) where
 
 
-import           Prelude.Unicode
 import           Control.Applicative
 import           Control.Applicative.Unicode
 import           Control.Arrow
 import           Control.Monad
 import           GHC.Exts                    (IsList, Item, fromList, toList)
+import           Prelude.Unicode
 
 
 (×) ∷ Num α ⇒ α → α → α
@@ -123,18 +122,6 @@ infixr 3 ↭
 (⥈) ∷ ArrowPlus τ ⇒ τ α β → τ α β → τ α β
 (⥈) = (<+>)
 infixr 5 ⥈
-
-
--- Reverse function application.
-(&) ∷ α → (α → β) → β
-(&) = flip ($)
-infixl 0 &
-
-
--- Reverse infix fmap.
-(<&>) ∷ Functor f ⇒ f α → (α → β) → f β
-(<&>) = flip (<$>)
-infixl 4 <&>
 
 
 -- Pointless predicate composition.
