@@ -6,7 +6,7 @@ module Prelude.Unicode.SR (
     (×), (⨯),
     (↑), (⇑),
     (‼),
-    (⊕), (⟴), (⬲), (+≫), (≪+),
+    (+≫), (≪+),
     (⦷),
     (⁄),
     (↑≪), (≫↑), (⥈), (↭),
@@ -61,20 +61,6 @@ infixl 7 ⁄
 (⨯) ∷ (IsList α, IsList β, IsList γ, Item γ ~ (Item α, Item β))
     ⇒ α → β → γ
 x ⨯ y = fromList $ (,) ⦷ toList x ⊛ toList y
-
-
--- Monoid plus.
-(⊕) ∷ Monoid μ ⇒ μ → μ → μ
-(⊕) = (⟴)
-infixr 6 ⊕
-
-(⟴) ∷ Monoid μ ⇒ μ → μ → μ
-(⟴) = mappend
-infixl 6 ⟴
-
-(⬲) ∷ Monoid μ ⇒ μ → μ → μ
-(⬲) = flip mappend
-infixl 6 ⬲
 
 
 -- Alternative/monad plus.
