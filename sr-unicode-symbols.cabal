@@ -59,10 +59,10 @@ library
   
   -- Other library packages from which modules are imported.
   build-depends:
-    base >=4.8 && <4.10,
+    base >=4.8 && <4.11,
     base-unicode-symbols >=0.2 && <0.3,
     containers-unicode-symbols >=0.3 && <0.4,
-    vector >=0.10 && <0.12
+    vector >=0.10 && <0.13
 
   -- Directories containing source files.
   hs-source-dirs:      src
